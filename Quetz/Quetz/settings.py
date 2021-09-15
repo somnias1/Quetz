@@ -43,10 +43,13 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "multiselectfield",
+    "corsheaders",
     "api",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -57,6 +60,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "Quetz.urls"
+
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = (
+#'http://localhost:8081',
+# )
 
 TEMPLATES = [
     {
