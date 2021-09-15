@@ -18,4 +18,5 @@ urlpatterns = [
     path("", Greetings.index, name="index"),
     path("db/", Greetings.db, name="db"),
     path("admin/", admin.site.urls),
+    path("api/", include("api.urls")),
 ]
