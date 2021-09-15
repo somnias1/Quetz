@@ -15,6 +15,12 @@ class UserSerializer(serializers.ModelSerializer):
 
         fields = "__all__"
 
+    def get_users(self):
+        return UserSerializer(User.objects.all(), many=True).data
+
+    def get_specific_user(self, data):
+        return UserSerializer(User.objects.filter(username=data["username"])).data
+
 
 class UserLoginSerializer(serializers.Serializer):
     username = serializers.CharField(min_length=8, max_length=86)

@@ -33,7 +33,14 @@ class UserViewSet(viewsets.GenericViewSet):
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
         data = UserSerializer(user).data
-        print(type(data["fecha_nacimiento"]))
+        # print(date(data["fecha_nacimiento"]).year)
         # edad = date(year=data["fecha_nacimiento"]) - date(year).today()
 
         return Response(data, status=status.HTTP_201_CREATED)
+
+    @action(detail=False, methods=["get"])
+    def watch(self, request):
+        serializer = UserSerializer()
+        specificuser = serializer.get_specific_user(data=request.data)
+        # print(specificuser)
+        return Response(specificuser, status=status.HTTP_200_OK)

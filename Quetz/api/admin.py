@@ -6,9 +6,9 @@ from .models import User
 # Register your models here.
 
 # admin.site.register(Greeting)
-admin.site.register(User)
+# admin.site.register(User)
 
-"""
+
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
 
@@ -41,4 +41,3 @@ class UserAdmin(admin.ModelAdmin):
         "fecha_registro",
         # "modified",
     ]
-"""
