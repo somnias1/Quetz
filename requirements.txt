@@ -1,7 +1,3 @@
-#Para instalar los requerimientos usar
-#pip install -r requirements.txt 
-#dentro del entorno virtual
-
 asgiref==3.4.1
 black==21.8b0
 Cerberus==1.3.4
