@@ -13,13 +13,28 @@ class UserSerializer(serializers.ModelSerializer):
 
         model = User
 
-        fields = "__all__"
+        fields = [
+            "username",
+            "last_login",
+            "email",
+            "fecha_registro",
+            "fecha_nacimiento",
+            "institucion_educativa",
+            "idiomas",
+            "ubicacion",
+            "facebookurl",
+            "twitterurl",
+            "youtubeurl",
+            "adulto",
+            "foto_perfil",
+        ]
 
     def get_users(self):
         return UserSerializer(User.objects.all(), many=True).data
 
-    def get_specific_user(self, data):
-        return UserSerializer(User.objects.filter(username=data["username"])).data
+    def get_specific_user(self, validate_data):
+        infouser = User.objects.filter(username=validate_data)[0]
+        return UserSerializer(infouser)
 
 
 class UserLoginSerializer(serializers.Serializer):
