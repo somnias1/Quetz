@@ -93,23 +93,18 @@ import dj_database_url
 
 import psycopg2
 
-DATABASE_URL = os.environ["DATABASE_URL"]
+# DATABASE_URL = os.environ["DATABASE_URL"]
 
-conn = psycopg2.connect(DATABASE_URL, sslmode="require")
+# conn = psycopg2.connect(DATABASE_URL, sslmode="require")
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        "NAME": "",  # os.path.join(BASE_DIR, "db.sqlite3"),  # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        "USER": "",
-        "PASSWORD": "",
-        "HOST": "",  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        "PORT": "",  # Set to empty string for default.
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
 
-DATABASES["default"] = dj_database_url.config(conn_max_age=600, ssl_require=False)
+# DATABASES["default"] = dj_database_url.config(conn_max_age=600, ssl_require=False)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
