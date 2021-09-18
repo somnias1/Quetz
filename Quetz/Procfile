@@ -1,1 +1,1 @@
-web: gunicorn Quetz.wsgi
+web: gunicorn Quetz.Quetz.wsgi
